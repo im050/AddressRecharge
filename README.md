@@ -5,7 +5,7 @@
 ``` php
 php artisan vendor:publish --provider="Daling\Balance\ServiceProvider"
 ```
-####生成迁移
+#### 生成迁移
 ``` php
 php artisan migrate
 ```
