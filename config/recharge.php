@@ -3,8 +3,8 @@ return [
     'btc_series' => [
         'rpc_ip'   => '127.0.0.1',
         'rpc_port' => '8338',
-        'rpc_user' => 'coincbdcuser',
-        'rpc_pwd'  => 'WBGasGJ4q5Ufm',
+        'rpc_user' => '',
+        'rpc_pwd'  => '',
         'confirmations' => 3
     ],
 

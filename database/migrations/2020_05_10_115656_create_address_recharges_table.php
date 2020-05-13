@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 
-class CreateRechargesTable extends Migration
+class CreateAddressRechargesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,9 @@ class CreateRechargesTable extends Migration
      */
     public function up()
     {
-        Schema::create('recharges', function (Blueprint $table) {
+        Schema::create('address_recharges', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->id();
+            $table->increments('id');
             $table->bigInteger('uid')->index();
             $table->integer('wid')->index()->comment('充值币种id');
             $table->string('code', 20)->comment('充值币种code');
