@@ -104,12 +104,16 @@ class BtcSeries
         if (is_array($result)) {
             foreach ($result as $k1 => $val) {
                 $amount = $val['amount'];
-                if ($amount <= 0 || $val['confirmations'] >= $this->confirmations) {
+                if ($amount <= 0 || $val['confirmations'] < $this->confirmations) {
                     continue;
                 }
                 if ($this->code == 'btc') {
                     $recharge = Recharge::where(['uid' => $this->uid, 'address' => $this->address, 'hash' => $val['txid']])->first();
                 } else {
+                    //
+                    if(!$val['valid']){
+                        continue;
+                    }
                     //usdt 记录里区分发送地址和接收地址
                     $recharge = Recharge::where(['uid' => $this->uid, 'address' => $val['referenceaddress'], 'hash' => $val['txid']])->first();
                 }
