@@ -111,6 +111,9 @@ class BtcSeries
                     $recharge = Recharge::where(['uid' => $this->uid, 'address' => $this->address, 'hash' => $val['txid']])->first();
                 } else {
                     //
+                    if ($val['referenceaddress'] != $this->address) {
+                        continue;
+                    }
                     if(!$val['valid']){
                         continue;
                     }
